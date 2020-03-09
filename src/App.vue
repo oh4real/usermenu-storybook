@@ -7,6 +7,7 @@
       flat
       class="kph-header-bar"
       >
+
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -38,29 +39,27 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <k-user-menu user="CSR-with-really-long-name@fi.bank" />
+      <k-user-menu user="CSR-with-really-long-name@fi.bank" :userLinks="links"/>
     </v-app-bar>
 
     <v-content style="min-height: 1200px">
-      <HelloWorld />
     </v-content>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
 import KUserMenu from "@/components/KUserMenu.vue"
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld, KUserMenu
+    KUserMenu
   },
 
   data: () => ({
-    items: [{title:'Howdy', url:'/out'}]
+    links: { settings: '/settings', logout: '/logout' }
   })
 });
 </script>

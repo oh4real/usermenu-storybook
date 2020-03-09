@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-menu offset-y tile :nudge-bottom="5" max-width="250px" flat>
+    <v-menu offset-y tile :nudge-bottom="5" min-width="250px" flat>
       <template v-slot:activator="{ on }">
         <v-btn
           class="v-btn-case-override"
@@ -14,7 +14,7 @@
         > <v-icon>mdi-account</v-icon> {{ user }}
         </v-btn>
       </template>
-      <v-list class="k-user-menu-list" flat tile max-width="250px">
+      <v-list class="k-user-menu-list" flat tile min-width="250px">
         <v-list-item-group>
         <v-list-item
           @click="goToSettings"
@@ -51,8 +51,7 @@ export default class KUserMenu extends Vue {
     @Prop({ default: 'user@fi.bank' }) readonly user!: string
     @Prop({ default: () => ({ settings: 'https://www.google.com', logout: '/api/logout' }) }) readonly userLinks!: UserLinks
     goToLogout (): void {
-      console.log(this.$vuetify.application)
-        // window.location.href = this.userLinks.logout
+      window.location.href = this.userLinks.logout
     }
     goToSettings (): void {
       window.location.href = this.userLinks.settings

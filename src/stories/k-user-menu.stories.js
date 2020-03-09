@@ -1,7 +1,6 @@
 import { storiesOf } from "@storybook/vue"
 import {
-  VFlex,
-  VContainer
+  VAppBar
 } from "vuetify/lib";
 
 import KUserMenu from "@/components/KUserMenu.vue"
@@ -9,21 +8,26 @@ import KUserMenu from "@/components/KUserMenu.vue"
 storiesOf("K User Menu", module)
   .add('k user menu default links', () => ({
     components: {
-      VFlex, VContainer,
+      VAppBar,
       KUserMenu
     },
     template: `
-      <v-container grid-list-xl fluid>
-        <v-flex xs4>
+    <v-app-bar 
+      app 
+      color="#ffffff" 
+      light
+      flat
+      >
           <k-user-menu 
-            color="secondary" 
-            user="test1@fi.bank" />
-        </v-flex>
-      </v-container>`
+            color="#ffffff" 
+            user="test1@fi.bank" 
+            />
+      </v-app-bar>
+      `
   }))
   .add('user menu with menu props', () => ({
     components: {
-      VFlex, VContainer,
+      VAppBar,
       KUserMenu
     },
     data () {
@@ -35,12 +39,16 @@ storiesOf("K User Menu", module)
       };
     },
     template: `
-      <v-container grid-list-xl fluid>
-        <v-flex xs4>
+    <v-app-bar 
+      app 
+      color="#ffffff" 
+      light
+      flat
+      >
           <k-user-menu 
-            color="primary" 
+            color="#ffffff" 
             user="test2@fi.bank" 
-            :userLinks="userLinks"/>
-        </v-flex>
-      </v-container>`
+            :userLinks="{settings: '/settings', logout: '/logout' }"
+            />
+      </v-app-bar>`
   }))
