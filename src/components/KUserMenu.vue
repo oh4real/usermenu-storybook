@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-menu offset-y tile :nudge-bottom="5" max-width="160px" flat>
+    <v-menu offset-y tile :nudge-bottom="5" max-width="250px" flat>
       <template v-slot:activator="{ on }">
         <v-btn
           class="v-btn-case-override"
@@ -14,19 +14,23 @@
         > <v-icon>mdi-account</v-icon> {{ user }}
         </v-btn>
       </template>
-      <v-list class="k-user-menu-list" flat tile max-width="160px">
+      <v-list class="k-user-menu-list" flat tile max-width="250px">
+        <v-list-item-group>
         <v-list-item
           @click="goToSettings"
           flat tile
-        >
-          <v-list-item-title>Account Settings</v-list-item-title>
+        ><v-list-item-icon><v-icon>mdi-settings</v-icon></v-list-item-icon>
+          <v-list-item-title> Account Settings</v-list-item-title>
         </v-list-item>
+        </v-list-item-group>
+        <v-list-item-group>
         <v-list-item
           @click="goToLogout"
           flat tile
-        >
-          <v-list-item-title>Log Out</v-list-item-title>
+        ><v-list-item-icon><v-icon>mdi-logout</v-icon></v-list-item-icon>
+          <v-list-item-title> Log Out</v-list-item-title>
         </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-menu>
   </div>
