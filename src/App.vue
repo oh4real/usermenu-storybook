@@ -2,48 +2,51 @@
   <v-app>
     <v-app-bar 
       app 
-      color="#ffffff" 
       light
+      color="#FFFFFF"
       flat
+      hide-on-scroll
       class="kph-header-bar"
       >
 
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
+        <a href="https://www.kasasa.com" ><v-img
+          alt="Kasasa Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="https://www.kasasa.com/hubfs/K.com/Logo/logo-kasasa.png"
           transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+          width="130"
+          height="19"
+        /></a>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-      <v-spacer></v-spacer>
       <k-user-menu user="CSR-with-really-long-name@fi.bank" :userLinks="links"/>
     </v-app-bar>
 
-    <v-content style="min-height: 1200px">
+    <v-content >
+
+    <v-app-bar
+      color="#464646"
+      dark
+      tile
+      v-scroll="whatsMyTop"
+      :class="{ 'k-portal-app-bar-fixed': fixedScroll }"
+      >
+      <v-toolbar-title class="display-1 font-weight-medium">Clients</v-toolbar-title>
+    </v-app-bar>
+    <v-container>
+      <v-row v-for="i in 10" :key="i" height="1400">
+        <v-card>
+          <v-card-title>Title {{ i }}</v-card-title>
+          <v-card-text>Here is some content for card {{ i }}</v-card-text>
+        </v-card>
+      </v-row>
+    </v-container>
     </v-content>
+    <v-footer>Footer</v-footer>
   </v-app>
 </template>
 
@@ -59,13 +62,25 @@ export default Vue.extend({
   },
 
   data: () => ({
-    links: { settings: '/settings', logout: '/logout' }
-  })
+    links: { settings: '/settings', logout: '/logout' },
+    fixedScroll: false
+  }),
+
+  methods: {
+    whatsMyTop(e: Event) {
+      this.fixedScroll = window.scrollY > this.$vuetify.application.top
+    }
+  },
 });
 </script>
 
 <style scoped>
   .kph-header-bar {
     border-bottom: 1px solid red !important;
+  }
+  .k-portal-app-bar-fixed {
+    position: fixed;
+    top: 0px;
+    z-index: 5;
   }
 </style>
