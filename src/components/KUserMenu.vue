@@ -16,12 +16,15 @@
       </template>
       <v-list class="k-user-menu-list" flat tile min-width="250px">
         <v-list-item-group>
-        <v-list-item
-          @click="goToSettings"
-          flat tile
-        ><v-list-item-icon><v-icon>mdi-settings</v-icon></v-list-item-icon>
-          <v-list-item-title> Account Settings</v-list-item-title>
-        </v-list-item>
+          <v-list-item
+            @click="goToSettings"
+            flat tile
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title> Account Settings</v-list-item-title>
+          </v-list-item>
         </v-list-item-group>
         <v-list-item-group>
         <v-list-item
