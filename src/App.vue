@@ -22,8 +22,12 @@
       </div>
 
       <v-spacer></v-spacer>
+      
+      <k-user-menu user="Freedom Institution - Demo (FOR SALES ONLY) - 402" :userLinks="links"/>
 
-      <k-user-menu user="CSR-with-really-long-name@fi.bank" :userLinks="links"/>
+      <k-user-menu user="first.last@commerce.bank" :userLinks="links"/>
+
+      <k-user-menu user="Applications" :userLinks="links"/>
     </v-app-bar>
 
     <v-content >

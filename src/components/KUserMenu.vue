@@ -3,7 +3,7 @@
     <v-menu 
       offset-y 
       tile 
-      min-width="250px" 
+      min-width="180px" 
       flat
       :nudge-bottom="10"
       content-class="does-this-work"
@@ -21,16 +21,16 @@
         > <v-icon>mdi-account</v-icon> {{ user }}
         </v-btn>
       </template>
-      <v-list class="k-user-menu-list" flat tile min-width="250px">
+      <v-list class="k-user-menu-list" flat tile min-width="180px">
         <v-list-item-group>
           <v-list-item
             @click="goToSettings"
             flat tile
           >
             <v-list-item-icon>
-              <v-icon>mdi-cog</v-icon>
+              <v-icon>mdi-settings</v-icon>
             </v-list-item-icon>
-            <v-list-item-title> Account Settings</v-list-item-title>
+            <v-list-item-title>Account Settings</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
         <v-list-item-group>
@@ -38,7 +38,7 @@
           @click="goToLogout"
           flat tile
         ><v-list-item-icon><v-icon>mdi-logout</v-icon></v-list-item-icon>
-          <v-list-item-title> Log Out</v-list-item-title>
+          <v-list-item-title>Log Out</v-list-item-title>
         </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -74,12 +74,13 @@ export default class KUserMenu extends Vue {
 
     .k-user-menu-list {
       border-top:  5px solid red;
+      border-radius: 0 !important;
     }
     .v-btn-case-override {
       text-transform: none;
     }
 
     .does-this-work {
-      border-top: solid 5px red;
+      border-top: 5px solid red;
     }
 </style>

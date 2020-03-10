@@ -6,6 +6,25 @@ import {
 import KUserMenu from "@/components/KUserMenu.vue"
 
 storiesOf("K User Menu", module)
+  .add('k user menu with long name', () => ({
+    components: {
+      VAppBar,
+      KUserMenu
+    },
+    template: `
+    <v-app-bar 
+      app 
+      color="#ffffff" 
+      light
+      flat
+      >
+          <k-user-menu 
+            color="#ffffff" 
+            user="first.last@ficommerce.bank" 
+            />
+      </v-app-bar>
+      `
+  }))
   .add('k user menu default links', () => ({
     components: {
       VAppBar,
