@@ -1,6 +1,13 @@
 <template>
   <div class="text-center">
-    <v-menu offset-y tile :nudge-bottom="5" min-width="250px" flat>
+    <v-menu 
+      offset-y 
+      tile 
+      min-width="250px" 
+      flat
+      :nudge-bottom="10"
+      content-class="does-this-work"
+      >
       <template v-slot:activator="{ on }">
         <v-btn
           class="v-btn-case-override"
@@ -70,5 +77,9 @@ export default class KUserMenu extends Vue {
     }
     .v-btn-case-override {
       text-transform: none;
+    }
+
+    .does-this-work {
+      border-top: solid 5px red;
     }
 </style>
