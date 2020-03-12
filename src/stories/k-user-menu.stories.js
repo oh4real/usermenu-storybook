@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue"
 import {
-  VAppBar
+  VAppBar, VContent, VToolbarTitle
 } from "vuetify/lib";
 
 import KUserMenu from "@/components/KUserMenu.vue"
@@ -8,11 +8,11 @@ import KUserMenu from "@/components/KUserMenu.vue"
 storiesOf("K User Menu", module)
   .add('k user menu with long name', () => ({
     components: {
-      VAppBar,
+      VAppBar, VContent, VToolbarTitle,
       KUserMenu
     },
     template: `
-    <v-app-bar 
+    <div><v-app-bar 
       app 
       color="#ffffff" 
       light
@@ -23,11 +23,14 @@ storiesOf("K User Menu", module)
             user="first.last@ficommerce.bank" 
             />
       </v-app-bar>
+      <v-content><v-app-bar color="grey" 
+      dark
+      tile><v-toolbar-title>Example</v-toolbar-title></v-app-bar></v-content></div>
       `
   }))
   .add('k user menu default links', () => ({
     components: {
-      VAppBar,
+      VAppBar, VContent, VToolbarTitle,
       KUserMenu
     },
     template: `
@@ -46,7 +49,7 @@ storiesOf("K User Menu", module)
   }))
   .add('user menu with menu props', () => ({
     components: {
-      VAppBar,
+      VAppBar, VContent, VToolbarTitle,
       KUserMenu
     },
     data () {

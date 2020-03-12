@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  command:
+    image: node:12
+    container_name: usermenu-command  
+    volumes:
+      - ./:/home
+    working_dir: /home   
+    dns:
+      - 10.1.1.1
+    command: echo "I need any YARN command. e.g. `docker-compose run command yarn install`"
+
+  storybook:
+    image: node:12
+    container_name: usermenu-storybook
+    volumes:
+      - ./:/home
+    working_dir: /home   
+    ports:
+      - "6066:6006"
+    dns:
+      - 10.1.1.1
+    command: yarn storybook:serve  
+
+  serve:
+    image: node:12
+    container_name: usermenu-serve  
+    volumes:
+      - ./:/home
+    working_dir: /home   
+    ports:
+      - "8088:8080"
+    dns:
+      - 10.1.1.1
+    command: yarn serve  
+    

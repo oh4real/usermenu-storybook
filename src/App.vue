@@ -22,12 +22,8 @@
       </div>
 
       <v-spacer></v-spacer>
-      
-      <k-user-menu user="Freedom Institution - Demo (FOR SALES ONLY) - 402" :userLinks="links"/>
 
-      <k-user-menu user="first.last@commerce.bank" :userLinks="links"/>
-
-      <k-user-menu user="Applications" :userLinks="links"/>
+      <k-user-menu user="first.last@ficommerce.cu" :userLinks="links"/>
     </v-app-bar>
 
     <v-content >
@@ -39,7 +35,7 @@
       v-scroll="whatsMyTop"
       :class="{ 'k-portal-app-bar-fixed': fixedScroll }"
       >
-      <v-toolbar-title class="display-1 font-weight-medium">Clients</v-toolbar-title>
+      <v-toolbar-title class="display-1">Clients</v-toolbar-title>
     </v-app-bar>
     <v-container>
       <v-row v-for="i in 10" :key="i" height="1400">
@@ -80,7 +76,7 @@ export default Vue.extend({
 
 <style scoped>
   .kph-header-bar {
-    border-bottom: 1px solid red !important;
+    border-bottom: 1px solid #D41A27 !important;
   }
   .k-portal-app-bar-fixed {
     position: fixed;

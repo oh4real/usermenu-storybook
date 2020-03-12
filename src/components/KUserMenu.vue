@@ -1,33 +1,37 @@
 <template>
-  <div class="text-center">
+  <div>
     <v-menu 
       offset-y 
       tile 
       min-width="180px" 
       flat
-      :nudge-bottom="10"
-      content-class="does-this-work"
+      content-class="k-user-menu-list-top-border"
+      :nudge-bottom="computedMarginTop"
       >
       <template v-slot:activator="{ on }">
         <v-btn
           class="v-btn-case-override"
           dark
           text
-          block
+          depressed
           tile
+          :ripple="false"
           color="secondary" 
           v-on="on"
           v-bind="$attrs"
         > <v-icon>mdi-account</v-icon> {{ user }}
         </v-btn>
       </template>
-      <v-list class="k-user-menu-list" flat tile min-width="180px">
+      <v-list 
+        class="k-user-menu-list" 
+        min-width="180px" 
+        subheader >
         <v-list-item-group>
           <v-list-item
             @click="goToSettings"
             flat tile
           >
-            <v-list-item-icon>
+            <v-list-item-icon class="k-user-menu-icon">
               <v-icon>mdi-settings</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Account Settings</v-list-item-title>
@@ -37,7 +41,7 @@
         <v-list-item
           @click="goToLogout"
           flat tile
-        ><v-list-item-icon><v-icon>mdi-logout</v-icon></v-list-item-icon>
+        ><v-list-item-icon class="k-user-menu-icon"><v-icon>mdi-logout</v-icon></v-list-item-icon>
           <v-list-item-title>Log Out</v-list-item-title>
         </v-list-item>
         </v-list-item-group>
@@ -66,21 +70,27 @@ export default class KUserMenu extends Vue {
     goToSettings (): void {
       window.location.href = this.userLinks.settings
     }
+
+    get computedMarginTop (): string {
+      return (this.$vuetify.application.top - 36) / 2 - 5 +  "px"
+    }
 }
 </script>
 
 <style scoped lang="scss">
-    @import '@/sass/variables.scss';
 
     .k-user-menu-list {
-      border-top:  5px solid red;
       border-radius: 0 !important;
     }
     .v-btn-case-override {
       text-transform: none;
     }
 
-    .does-this-work {
-      border-top: 5px solid red;
+    .k-user-menu-list-top-border {
+      border-top: 5px solid #D41A27;
+    }
+
+    .k-user-menu-icon {
+        margin-right: 12px !important;
     }
 </style>
