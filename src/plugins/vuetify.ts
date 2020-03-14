@@ -1,11 +1,11 @@
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
+import Vue from "vue"
+import Vuetify from "vuetify/lib"
 
 /** 
  * https://iconify.design/icon-sets/mdi/ 
  * requires @mdi/font:4.9.x  v5.0.x breaks everything!
  */
-import '@mdi/font/css/materialdesignicons.min.css';
+import '@mdi/font/css/materialdesignicons.min.css'
 
 Vue.use(Vuetify);
 

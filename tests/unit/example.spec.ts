@@ -1,4 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
+
+import '@/plugins/vuetify';
 import KUserMenu from "@/components/KUserMenu.vue";
 
 describe("KUserMenu.vue", () => {

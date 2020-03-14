@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import KUserMenu from "@/components/KUserMenu.vue"
+import {KUserMenu} from "@/components/PortalHeader"
 
 export default Vue.extend({
   name: "App",

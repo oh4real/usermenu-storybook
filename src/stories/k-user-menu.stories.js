@@ -3,7 +3,7 @@ import {
   VAppBar, VContent, VToolbarTitle
 } from "vuetify/lib";
 
-import KUserMenu from "@/components/KUserMenu.vue"
+import { KUserMenu } from "@/components/PortalHeader"
 
 storiesOf("K User Menu", module)
   .add('k user menu with long name', () => ({
