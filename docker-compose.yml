@@ -9,7 +9,7 @@ services:
     working_dir: /home   
     dns:
       - 10.1.1.1
-    command: echo "I need any YARN command. e.g. `docker-compose run command yarn install`"
+    command: echo "I need any YARN command. e.g. `docker-compose run --rm command yarn install`"
 
   storybook:
     image: node:12

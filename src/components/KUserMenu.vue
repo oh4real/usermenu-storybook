@@ -13,9 +13,9 @@
           class="v-btn-case-override"
           dark
           text
-          depressed
+          block
           tile
-          :ripple="false"
+          ripple="false"
           color="secondary" 
           v-on="on"
           v-bind="$attrs"
@@ -23,9 +23,7 @@
         </v-btn>
       </template>
       <v-list 
-        class="k-user-menu-list" 
-        min-width="180px" 
-        subheader >
+      class="k-user-menu-list" min-width="180px" subheader >
         <v-list-item-group>
           <v-list-item
             @click="goToSettings"
@@ -72,12 +70,14 @@ export default class KUserMenu extends Vue {
     }
 
     get computedMarginTop (): string {
+      console.log(this.$vuetify.application);
       return (this.$vuetify.application.top - 36) / 2 - 5 +  "px"
     }
 }
 </script>
 
 <style scoped lang="scss">
+    @import '@/sass/variables.scss';
 
     .k-user-menu-list {
       border-radius: 0 !important;

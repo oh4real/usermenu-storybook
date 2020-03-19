@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-menu 
+    
       offset-y 
       tile 
       min-width="180px" 
@@ -11,11 +12,12 @@
       <template v-slot:activator="{ on }">
         <v-btn
           x-large
-          class="v-btn-case-override"
+          class="v-btn-case-override k-user-menu-btn"
           dark
           text
           depressed
           tile
+          :ripple="false"
           color="secondary" 
           v-on="on"
           v-bind="$attrs"
@@ -25,7 +27,7 @@
       <v-list 
         class="k-user-menu-list" 
         min-width="180px" 
-        subheader >
+         >
         <v-list-item-group>
           <v-list-item
             @click="goToSettings"
@@ -72,7 +74,7 @@ export default class KUserMenu extends Vue {
     }
 
     get computedMarginTop (): string {
-      return (this.$vuetify.application.top - 36) / 2 - 5 +  "px"
+      return (this.$vuetify.application.top - 52) / 2 - 2 +  "px"
     }
 }
 </script>
@@ -84,12 +86,24 @@ export default class KUserMenu extends Vue {
     }
     .v-btn-case-override {
       text-transform: none;
-      border-bottom: 4px solid #D41A27;
-      margin-bottom: -1px;
+      
+    }
+
+    .k-user-menu-btn {
+      padding: 0 6px !important;
+
+      &:hover, &:focus {
+        border-bottom: #D41A27 solid 4px !important;
+        margin-bottom: -4px;
+
+        &:before {
+          opacity: 0 !important;
+        }
+      }
     }
 
     .k-user-menu-list-top-border {
-      border-top: 5px solid #D41A27;
+      // border-top: 5px solid #D41A27;
     }
 
     .k-user-menu-icon {
